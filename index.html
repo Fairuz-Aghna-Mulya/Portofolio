@@ -32,7 +32,7 @@
 
         nav {
             display: flex;
-            justify-content: center;  /* Menyusun item navigasi ke tengah */
+            justify-content: center;
             align-items: center;
         }
 
@@ -67,15 +67,14 @@
             text-align: center;
         }
 
-        .profile-img {
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-
         .hero h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
         .section {
@@ -218,7 +217,6 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="assets/images/profile.jpg" alt="Fairuz Aghna Mulya" class="profile-img">
         <h2>Hai, saya Fairuz Aghna Mulya</h2>
         <p>Game Developer yang berfokus pada pembuatan game kreatif dan pengalaman interaktif. Menciptakan dunia virtual yang menyenangkan dengan menggunakan teknologi terbaru.</p>
     </section>
@@ -287,7 +285,7 @@
         // Panggil fungsi renderSkills saat halaman dimuat
         renderSkills();
 
-        // Data Proyek (ini bisa diperbarui dengan menambahkan proyek baru)
+        // Data Proyek
         const projects = [
             {
                 title: "Eclipsed Fate",
