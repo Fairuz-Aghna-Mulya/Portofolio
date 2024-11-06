@@ -22,10 +22,6 @@
             font-size: 16px;
         }
 
-        h1, h2, h3 {
-            font-family: 'Arial', sans-serif;
-        }
-
         header {
             background-color: #007BFF;
             padding: 1rem;
@@ -146,9 +142,13 @@
             margin: auto;
         }
 
+        /* Menata kontak untuk sejajar secara horizontal */
         #contact ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            justify-content: center;  /* Untuk meratakan item secara horizontal */
+            gap: 30px; /* Memberikan jarak antar item */
         }
 
         #contact li {
@@ -173,6 +173,12 @@
 
             .project {
                 flex: 1 1 100%;
+            }
+
+            /* Agar kontak tetap dalam baris yang rapi pada mobile */
+            #contact ul {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
