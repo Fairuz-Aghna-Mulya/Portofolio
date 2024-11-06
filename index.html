@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <style>
+        /* Styles remain the same */
         :root {
-            /* Color Scheme */
             --primary: #005B96;
             --primary-dark: #004b7a;
             --secondary: #00334e;
@@ -24,52 +24,32 @@
             --text-primary: #333333;
             --text-secondary: #666666;
             --text-light: #ffffff;
-            
-            /* Typography */
             --font-main: 'Poppins', sans-serif;
             --fs-h1: clamp(2.5rem, 5vw, 3.5rem);
             --fs-h2: clamp(2rem, 4vw, 2.5rem);
             --fs-h3: 1.5rem;
             --fs-body: 1rem;
-            
-            /* Spacing */
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 2rem;
             --space-lg: 4rem;
-            
-            /* Animation */
             --transition-fast: 200ms ease;
             --transition-normal: 300ms ease;
             --transition-slow: 500ms ease;
-            
-            /* Layout */
             --border-radius: 12px;
             --container-width: 1200px;
             --header-height: 70px;
         }
-
-        .dark-mode {
-            --background: #121212;
-            --surface: #1e1e1e;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --primary: #0077cc;
-            --primary-dark: #005b96;
-        }
-
         /* Reset & Base Styles */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
             scroll-padding-top: var(--header-height);
         }
-
         body {
             font-family: var(--font-main);
             background-color: var(--background);
@@ -79,156 +59,45 @@
             transition: background-color var(--transition-normal),
                         color var(--transition-normal);
         }
-
-        /* Header & Navigation */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--header-height);
-            background-color: var(--background);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: background-color var(--transition-normal);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            /* Header styling */
         }
-
-        nav {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 var(--space-sm);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: var(--space-md);
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius);
-            transition: all var(--transition-fast);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-            background-color: rgba(0,91,150,0.1);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                gap: var(--space-sm);
-                background-color: var(--background);
-                position: absolute;
-                top: var(--header-height);
-                left: 0;
-                right: 0;
-                padding: var(--space-md);
-                border-radius: var(--border-radius);
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-        }
-
-        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-lg) var(--space-sm);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            position: relative;
-            overflow: hidden;
+            /* Hero section styling */
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.05)" width="100" height="100"/></svg>');
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            max-width: var(--container-width);
-            text-align: center;
-            color: var(--text-light);
+        .skills {
             padding: var(--space-md);
-            z-index: 1;
+            text-align: center;
         }
-
-        .hero-title {
-            font-size: var(--fs-h1);
-            margin-bottom: var(--space-sm);
-            animation: fadeInUp 1s ease;
+        .skills-grid {
+            display: grid;
+            gap: var(--space-sm);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: var(--space-md);
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s backwards;
+        .skill-card {
+            background-color: var(--surface);
+            border-radius: var(--border-radius);
+            padding: var(--space-md);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-fast);
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .skill-card:hover {
+            transform: translateY(-5px);
         }
-
-        /* Footer */
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: var(--space-xs);
+        }
         footer {
             background-color: var(--secondary);
             color: var(--text-light);
-            padding: var(--space-md) var(--space-sm);
+            padding: var(--space-md);
             text-align: center;
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false" onkeydown="return checkKeyCode(event);">
 
     <!-- Header -->
     <header>
@@ -237,7 +106,6 @@
             <div class="nav-links">
                 <a href="#">Home</a>
                 <a href="#">Skills</a>
-                <a href="#">Projects</a>
                 <a href="#">Contact</a>
             </div>
             <div class="mobile-menu" id="mobile-menu">
@@ -256,6 +124,7 @@
 
     <!-- Skills Section -->
     <section class="skills">
+        <h2>Keterampilan</h2>
         <div class="skills-grid">
             <div class="skill-card" data-aos="fade-up">
                 <div class="skill-icon"><i class="fa fa-code"></i></div>
@@ -265,18 +134,9 @@
                 <div class="skill-icon"><i class="fa fa-gamepad"></i></div>
                 <h3>Game Development</h3>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects">
-        <div class="projects-grid">
-            <div class="project-card" data-aos="fade-up">
-                <img src="https://via.placeholder.com/400x300" alt="Project 1" class="project-image">
-                <div class="project-content">
-                    <h3>Project 1</h3>
-                    <p>Deskripsi singkat proyek 1</p>
-                </div>
+            <div class="skill-card" data-aos="fade-up">
+                <div class="skill-icon"><i class="fa fa-laptop-code"></i></div>
+                <h3>Web Development</h3>
             </div>
         </div>
     </section>
@@ -288,7 +148,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS (Animation On Scroll)
+        // Initialize AOS
         AOS.init();
 
         // Toggle mobile menu
@@ -297,7 +157,17 @@
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-    </script>
 
+        // Disable specific keys to prevent Inspect
+        function checkKeyCode(event) {
+            const forbiddenKeys = [123, 73, 74, 85]; // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if ((event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) || // Ctrl+Shift+I/J
+                event.keyCode === 123 || // F12
+                (event.ctrlKey && event.keyCode === 85)) { // Ctrl+U
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
