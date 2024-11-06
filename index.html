@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Fairuz Aghna Mulya">
+    <meta name="description" content="Portofolio profesional Fairuz Aghna Mulya - Game Developer">
+    <title>Fairuz Aghna Mulya - Game Developer</title>
+
+    <!-- CSS -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #007BFF;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+        }
+
+        .hamburger div {
+            background-color: white;
+            height: 4px;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #007BFF;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-container, .projects-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .skill, .project {
+            flex: 1 1 calc(33% - 2rem);
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .skill h3, .project h3 {
+            margin-bottom: 1rem;
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .project a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-list {
+            list-style: none;
+            text-align: center;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-list a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .nav-links.active {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-container, .projects-container {
+                flex-direction: column;
+            }
+
+            .skill, .project {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Fairuz Aghna Mulya</h1>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/images/profile.jpg" alt="Fairuz Aghna Mulya" class="profile-img">
+        <h2>Hai, saya Fairuz Aghna Mulya</h2>
+        <p>Game Developer yang berfokus pada pembuatan game kreatif dan pengalaman interaktif. Menciptakan dunia virtual yang menyenangkan dengan menggunakan teknologi terbaru.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah seorang Game Developer dengan pengalaman lebih dari 5 tahun dalam mengembangkan game untuk berbagai platform seperti PC, konsol, dan perangkat mobile. Saya memiliki keterampilan dalam berbagai alat pengembangan game seperti Unity, Unreal Engine, dan Godot. Saya bersemangat menciptakan pengalaman gaming yang imersif dan menarik bagi para pemain dengan fokus pada gameplay yang menyenangkan dan desain yang inovatif.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Keahlian</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <h3>Game Engines</h3>
+                <p>Unity, Unreal Engine, Godot</p>
+            </div>
+            <div class="skill">
+                <h3>Bahasa Pemrograman</h3>
+                <p>C#, C++, Python, GDScript</p>
+            </div>
+            <div class="skill">
+                <h3>Game Design</h3>
+                <p>Gameplay Mechanics, Level Design, UI/UX untuk Game</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Proyek</h2>
+        <div class="projects-container">
+            <div class="project">
+                <img src="assets/images/project1.jpg" alt="Project 1">
+                <h3>Game Petualangan 3D</h3>
+                <p>Game petualangan berbasis cerita yang dikembangkan menggunakan Unity 3D.</p>
+            </div>
+            <div class="project">
+                <img src="assets/images/project2.jpg" alt="Project 2">
+                <h3>Game Multiplayer Online</h3>
+                <p>Game multiplayer real-time menggunakan Photon untuk mekanisme jaringan.</p>
+            </div>
+            <div class="project">
+                <img src="assets/images/project3.jpg" alt="Project 3">
+                <h3>Game Mobile Puzzle</h3>
+                <p>Game puzzle mobile yang dikembangkan menggunakan Unity dan C#.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Kontak</h2>
+        <ul class="contact-list">
+            <li><a href="mailto:fairuz@example.com">fairuz@example.com</a></li>
+            <li><a href="https://linkedin.com/in/fairuz" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/fairuz" target="_blank">GitHub</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Fairuz Aghna Mulya. Semua hak dilindungi.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fade-in Effect for Sections on Scroll
+        const skills = document.querySelectorAll('.skill');
+        const projects = document.querySelectorAll('.project');
+
+        function fadeInOnScroll() {
+            skills.forEach((skill, index) => {
+                if (isElementInViewport(skill)) {
+                    skill.style.opacity = 1;
+                }
+            });
+
+            projects.forEach((project, index) => {
+                if (isElementInViewport(project)) {
+                    project.style.opacity = 1;
+                }
+            });
+        }
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+        }
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Trigger the effect on page load
+    </script>
+</body>
+</html>
