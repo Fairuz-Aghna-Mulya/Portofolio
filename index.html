@@ -232,11 +232,8 @@
     <!-- Keahlian Section -->
     <section id="skills" class="section">
         <h2>Keahlian</h2>
-        <div class="skills-list">
-            <div class="skill">Unity 3D</div>
-            <div class="skill">C#</div>
-            <div class="skill">Blender</div>
-            <div class="skill">Game Design</div>
+        <div class="skills-list" id="skillsList">
+            <!-- Keahlian akan ditambahkan secara dinamis oleh JavaScript -->
         </div>
     </section>
 
@@ -265,6 +262,31 @@
 
     <!-- JavaScript -->
     <script>
+        // Daftar keahlian (akan dirender dinamis)
+        const skills = [
+            "Unity 3D",
+            "C#",
+            "Blender",
+            "Game Design"
+        ];
+
+        // Fungsi untuk menampilkan keahlian secara dinamis
+        function renderSkills() {
+            const skillsList = document.getElementById('skillsList');
+            skillsList.innerHTML = '';  // Kosongkan sebelum diisi ulang
+
+            skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.classList.add('skill');
+                skillElement.textContent = skill;
+
+                skillsList.appendChild(skillElement);
+            });
+        }
+
+        // Panggil fungsi renderSkills saat halaman dimuat
+        renderSkills();
+
         // Data Proyek (ini bisa diperbarui dengan menambahkan proyek baru)
         const projects = [
             {
@@ -275,7 +297,7 @@
             }
         ];
 
-        // Fungsi untuk membuat elemen proyek berdasarkan data yang ada
+        // Fungsi untuk menampilkan proyek secara dinamis
         function renderProjects() {
             const projectsContainer = document.getElementById('projectsContainer');
             projectsContainer.innerHTML = '';  // Kosongkan kontainer sebelum diisi ulang
