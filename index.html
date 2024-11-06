@@ -20,6 +20,13 @@
             background-color: #f4f4f4;
             color: #333;
             font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
 
         /* Menonaktifkan klik kanan */
@@ -247,6 +254,7 @@
                 <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#contact">Kontak</a></li>
+                <li><a href="javascript:void(0);" id="toggle-dark-mode">Dark Mode</a></li>
             </ul>
         </nav>
     </header>
@@ -329,6 +337,11 @@
 
         // Panggil fungsi untuk memblokir akses di perangkat Android
         checkAndroid();
+
+        // Dark Mode Toggle Function
+        document.getElementById('toggle-dark-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
     </script>
 </body>
 </html>
