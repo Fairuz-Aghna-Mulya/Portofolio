@@ -22,6 +22,25 @@
             font-size: 16px;
         }
 
+        /* Menonaktifkan klik kanan */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10 */
+            user-select: none; /* Chrome, Opera */
+        }
+
+        .disable-right-click {
+            user-select: none;
+        }
+
+        .disable-text-selection {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
         header {
             background-color: #007BFF;
             padding: 1rem;
@@ -32,7 +51,7 @@
 
         nav {
             display: flex;
-            justify-content: center;
+            justify-content: center;  /* Menyusun item navigasi ke tengah */
             align-items: center;
         }
 
@@ -67,14 +86,15 @@
             text-align: center;
         }
 
-        .hero h2 {
-            font-size: 2rem;
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
             margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .section {
@@ -181,6 +201,16 @@
             text-align: center;
         }
 
+        /* Pesan untuk Android */
+        #android-block {
+            display: none;
+            background-color: #ffcccc;
+            color: #ff0000;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .projects-container {
@@ -203,6 +233,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Pesan untuk Android -->
+    <div id="android-block">
+        <p>Halaman ini tidak dapat dibuka di perangkat Android.</p>
+    </div>
+
     <!-- Header -->
     <header>
         <nav>
@@ -230,8 +266,11 @@
     <!-- Keahlian Section -->
     <section id="skills" class="section">
         <h2>Keahlian</h2>
-        <div class="skills-list" id="skillsList">
-            <!-- Keahlian akan ditambahkan secara dinamis oleh JavaScript -->
+        <div class="skills-list">
+            <div class="skill">Unity 3D</div>
+            <div class="skill">C#</div>
+            <div class="skill">Blender</div>
+            <div class="skill">Game Design</div>
         </div>
     </section>
 
@@ -260,63 +299,36 @@
 
     <!-- JavaScript -->
     <script>
-        // Daftar keahlian (akan dirender dinamis)
-        const skills = [
-            "Unity 3D",
-            "C#",
-            "Blender",
-            "Game Design"
-        ];
+        // Mencegah klik kanan di halaman
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            alert("Klik kanan dinonaktifkan.");
+        });
 
-        // Fungsi untuk menampilkan keahlian secara dinamis
-        function renderSkills() {
-            const skillsList = document.getElementById('skillsList');
-            skillsList.innerHTML = '';  // Kosongkan sebelum diisi ulang
-
-            skills.forEach(skill => {
-                const skillElement = document.createElement('div');
-                skillElement.classList.add('skill');
-                skillElement.textContent = skill;
-
-                skillsList.appendChild(skillElement);
-            });
-        }
-
-        // Panggil fungsi renderSkills saat halaman dimuat
-        renderSkills();
-
-        // Data Proyek
-        const projects = [
-            {
-                title: "Eclipsed Fate",
-                description: "Dalam Eclipsed Fate, pemain akan dibawa ke dunia yang terpecah, di mana kekuatan gelap telah menutupi takdir umat manusia dan dunia itu sendiri. Dunia ini pernah dihuni oleh peradaban yang maju, namun sekarang sebagian besar telah hilang, terkubur dalam bayang-bayang yang diciptakan oleh Eclipse, sebuah peristiwa kosmik yang menghalangi sinar matahari dan mengubah alur waktu.",
-                imageUrl: "assets/images/project1.jpg",
-                link: "#"
+        // Mencegah F12 dan shortcut inspect element
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) { // F12
+                return false;
             }
-        ];
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { // Ctrl+Shift+I
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 85) { // Ctrl+U
+                return false;
+            }
+        };
 
-        // Fungsi untuk menampilkan proyek secara dinamis
-        function renderProjects() {
-            const projectsContainer = document.getElementById('projectsContainer');
-            projectsContainer.innerHTML = '';  // Kosongkan kontainer sebelum diisi ulang
-
-            projects.forEach(project => {
-                const projectElement = document.createElement('div');
-                projectElement.classList.add('project');
-
-                projectElement.innerHTML = `
-                    <img src="${project.imageUrl}" alt="${project.title}">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <a href="${project.link}" target="_blank">Lihat Proyek</a>
-                `;
-
-                projectsContainer.appendChild(projectElement);
-            });
+        // Cek apakah pengguna menggunakan perangkat Android
+        function checkAndroid() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.indexOf("android") > -1) {
+                document.getElementById('android-block').style.display = 'block';
+                document.body.style.display = 'none'; // Sembunyikan konten
+            }
         }
 
-        // Panggil fungsi untuk menampilkan proyek pada saat halaman dimuat
-        renderProjects();
+        // Panggil fungsi untuk memblokir akses di perangkat Android
+        checkAndroid();
     </script>
 </body>
 </html>
