@@ -245,6 +245,24 @@
             text-align: center;
         }
     </style>
+
+    <!-- Blokir Akses Mobile & Inspeksi -->
+    <script>
+        // Mendeteksi perangkat mobile dan mengalihkan atau menutup halaman jika dibuka di mobile
+        if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.body.innerHTML = "<h1>Akses tidak diizinkan di perangkat mobile</h1>";
+            setTimeout(() => window.close(), 1000); // Menutup halaman setelah 1 detik
+        }
+
+        // Mencegah klik kanan dan inspeksi
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            // Cegah penggunaan tombol-tombol inspeksi
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
+                return false;
+            }
+        };
+    </script>
 </head>
 <body>
 
@@ -255,10 +273,11 @@
             <div class="nav-links">
                 <a href="#">Home</a>
                 <a href="#">Skills</a>
+                <a href="#">Projects</a>
                 <a href="#">Contact</a>
             </div>
-            <div class="mobile-menu" id="mobile-menu">
-                <i class="fa fa-bars" aria-label="Menu"></i>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
@@ -266,50 +285,38 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">Selamat Datang</h1>
-            <p class="hero-subtitle">Saya adalah seorang pengembang game.</p>
+            <h1 class="hero-title">Game Developer & Designer</h1>
+            <p class="hero-subtitle">Crafting games and interactive experiences that inspire and engage.</p>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
-        <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-                <div class="skill-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
-                <h3>Programming</h3>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-                <div class="skill-icon"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
+    <section class="skills" id="skills">
+        <div class="skills-grid" data-aos="fade-up">
+            <div class="skill-card">
+                <i class="fas fa-gamepad skill-icon"></i>
                 <h3>Game Development</h3>
             </div>
-            <div class="skill-card" data-aos="fade-up">
-                <div class="skill-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
-                <h3>Graphic Design</h3>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush skill-icon"></i>
+                <h3>UI/UX Design</h3>
             </div>
-            <div class="skill-card" data-aos="fade-up">
-                <div class="skill-icon"><i class="fa fa-database" aria-hidden="true"></i></div>
-                <h3>Database Management</h3>
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <h3>Programming</h3>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Fairuz Aghna Mulya. All Rights Reserved.</p>
+        <p>&copy; 2024 Fairuz Aghna Mulya - All Rights Reserved.</p>
     </footer>
 
+    <!-- AOS Library for Animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialize AOS (Animation On Scroll)
         AOS.init();
-
-        // Toggle mobile menu
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
     </script>
-
 </body>
 </html>
